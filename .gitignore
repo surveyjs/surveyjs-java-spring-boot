@@ -1,0 +1,9 @@
+# Anchored to the repository root: src/main/java/io/surveyjs/storage/ is source code, /storage/ is data
+/target/
+/storage/
+/.env
+/node_modules/
+/test-results/
+/playwright-report/
+.idea/
+*.iml

@@ -1,0 +1,11 @@
+.git
+.github
+.idea
+*.iml
+.env
+target
+node_modules
+storage
+test-results
+playwright-report
+src/test

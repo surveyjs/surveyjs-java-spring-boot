@@ -1,0 +1,53 @@
+<!--/* Demo only: this view also serves the embedded-schema example at /claim. There the controller sets optionA and passes
+     formDefinition and formVariables; /examples/load-definition-variables-data gets record and records instead. */-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/example}">
+
+<th:block layout:fragment="description">
+    <p>Load form schemas and user variables from your Java backend, either embedded in HTML or fetched from an API. Use variables to personalize form text and control question visibility, and restore saved answers through the API to prefill the form.</p>
+</th:block>
+
+<th:block layout:fragment="head">
+    <th:block th:if="${optionA}">
+        <!--/* Embed the schema and user variables as JSON escaped for an inline script */-->
+        <script th:inline="javascript">
+            window.FORM_DEFINITION = /*[[${formDefinition}]]*/ {};
+            window.FORM_VARIABLES = /*[[${formVariables}]]*/ {};
+        </script>
+    </th:block>
+</th:block>
+
+<th:block layout:fragment="try">
+    <li>Choose <strong>Schema embedded in HTML</strong> to receive the schema and user variables with the page, or <strong>Load from the API</strong> to fetch them and any saved answers in a separate request. You can inspect the API call in <strong>Requests</strong>.</li>
+    <li>Switch <strong>Customer</strong> between Alice and Bob. User variables personalize the title with their name and plan and show priority handling only for the premium plan.</li>
+    <li>When using <strong>Load from the API</strong>, you can select a <strong>Saved response</strong> to prefill the form with the customer's answers.</li>
+    <li>Press <strong>Submit claim</strong> to save a new response. Open <strong>Data</strong> to inspect the saved answers; user variables are excluded.</li>
+    <li>Press <strong>Start over</strong> to clear the form and the saved response selection.</li>
+</th:block>
+
+<th:block layout:fragment="demo-user-control">
+    <label class="flex items-center gap-2">
+        <span class="text-gray-600">Customer</span>
+        <select id="demo-user" data-reset-query="record" class="box-border h-9 rounded-md border border-gray-300 bg-white px-2 text-sm">
+            <option value="alice" th:selected="${user?.email == 'alice@example.com'}">Alice (premium)</option>
+            <option value="bob" th:selected="${user?.email == 'bob@example.com'}">Bob (basic)</option>
+        </select>
+    </label>
+</th:block>
+
+<th:block layout:fragment="actions">
+    <span class="box-border inline-flex min-h-9 max-w-full items-stretch rounded-md border border-gray-300 bg-white p-0.5" role="group" aria-label="Schema delivery">
+        <a href="/claim" th:aria-current="${optionA} ? 'page'" class="flex items-center rounded px-2.5 py-1 no-underline" th:classappend="${optionA} ? 'bg-sjs-dark text-white' : 'text-gray-700 hover:bg-gray-100'">Schema embedded in HTML</a>
+        <a href="/examples/load-definition-variables-data" th:aria-current="${!optionA} ? 'page'" class="flex items-center rounded px-2.5 py-1 no-underline" th:classappend="${!optionA} ? 'bg-sjs-dark text-white' : 'text-gray-700 hover:bg-gray-100'">Load from the API</a>
+    </span>
+    <th:block th:unless="${optionA}">
+        <form method="get" class="flex items-center gap-2">
+            <label for="record" class="text-gray-600">Saved response</label>
+            <select id="record" name="record" onchange="this.form.submit()" class="box-border h-9 rounded-md border border-gray-300 bg-white px-2 text-sm">
+                <option value="">New response</option>
+                <option th:each="r : ${records}" th:value="${r.id}" th:selected="${r.id == record}" th:text="${r.label}"></option>
+            </select>
+        </form>
+    </th:block>
+    <th:block th:replace="~{examples/partials/start-over :: button(false)}"></th:block>
+</th:block>
+</html>

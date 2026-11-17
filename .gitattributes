@@ -1,0 +1,8 @@
+# LF on every checkout, also on Windows: shared/ is checked against SHA256SUMS byte for byte
+* text=auto eol=lf
+# cmd.exe can misread an LF-only batch file (the Maven wrapper's mvnw.cmd)
+*.cmd text eol=crlf
+*.png binary
+*.ico binary
+*.woff2 binary
+*.jar binary

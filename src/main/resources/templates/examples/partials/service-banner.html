@@ -1,0 +1,9 @@
+<!--/* Demo only: shown when a SurveyJS service switch is off. The including page passes the switch's name and whether it is on. */-->
+<th:block th:fragment="banner(switch, on)">
+<th:block th:if="${switch != null and !on}">
+    <p class="rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-900">
+        <strong th:text="${switch == 'VALIDATE_RESPONSES'} ? 'Response validation is disabled.' : 'Form schema checking is disabled.'"></strong>
+        Set <code>[[${switch}]]=true</code> in <code>.env</code>, start the service with <code>docker compose up -d surveyjs</code>, then restart the app.
+    </p>
+</th:block>
+</th:block>
