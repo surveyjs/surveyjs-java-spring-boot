@@ -3,6 +3,7 @@
 This is the Java code behind [Integrate SurveyJS with Java](https://surveyjs.io/documentation/backend-integration-spring-boot), as a Spring Boot application you can run example by example. Each example of that page has a page here that runs the real SurveyJS component against these controllers, with a short "Try this" list, a live request log, a "What the server stored" panel and the code that just ran. SurveyJS has no backend of its own, so treat these as starting points for your own app.
 
 - SurveyJS demos: [app.demos.surveyjs.io](https://app.demos.surveyjs.io)
+- Backend integration examples on the SurveyJS website: [surveyjs.io/backend-integration/examples](https://surveyjs.io/backend-integration/examples)
 - The same examples for other platforms: [PHP (Laravel)](https://github.com/surveyjs/surveyjs-php-laravel), [ASP.NET Core](https://github.com/surveyjs/surveyjs-aspnet-core), [Node.js (Express)](https://github.com/surveyjs/surveyjs-nodejs-express), [Python (FastAPI)](https://github.com/surveyjs/surveyjs-python-fastapi), [Next.js](https://github.com/surveyjs/surveyjs-nextjs)
 
 There is no hosted catalog for this repository yet.
@@ -315,3 +316,9 @@ These examples must not be used as a real service as they are. They don't cover 
 - `demo/DemoUserFilter.java` in `security/SecurityConfig.java`: the demo version reads a `demo_user` cookie; your app authenticates there with form login, OAuth2 login or a JWT resource server. With a real session, turn CSRF back on.
 
 When you copy an example into your app, leave out the demo-only code: the `io.surveyjs.demo` package (and its lines in `security/SecurityConfig.java`, `web/WebConfig.java`, `relay/RelayConfig.java` and `storage/DatabaseConfig.java`), `relay/RoomKey.java`'s sandbox keys, `pages/`, `templates/`, `shared/ui/` (the page frame, its tabs and highlighting, the fonts and site images) and `shared/client/host.js` (its `mountSurvey()` is one line: `renderSurvey(survey, element)` from `survey-js-ui`).
+
+## Licence
+
+The code in this repository is available under the [MIT licence](LICENSE).
+
+The examples use SurveyJS Form Library, which is MIT-licensed as well. The examples marked "Commercial" in the Licence column above also use SurveyJS Survey Creator, Dashboard or PDF Generator, which are commercial products. You can integrate them and evaluate their functionality without a licence. Production use requires a developer licence for each developer who works with the SurveyJS APIs or implements the integration. See the [SurveyJS Licensing FAQ](https://surveyjs.io/faq#licensing) and the [End-User License Agreement](https://surveyjs.io/Developer-License-Agreement.pdf).

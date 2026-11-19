@@ -14,6 +14,12 @@
 	<name>surveyjs-java-spring-boot</name>
 	<description>The Java code behind the SurveyJS backend integration docs, runnable example by example</description>
 	<url>https://github.com/surveyjs/surveyjs-java-spring-boot</url>
+	<licenses>
+		<license>
+			<name>MIT</name>
+			<url>https://opensource.org/license/mit</url>
+		</license>
+	</licenses>
 
 	<properties>
 		<java.version>21</java.version>

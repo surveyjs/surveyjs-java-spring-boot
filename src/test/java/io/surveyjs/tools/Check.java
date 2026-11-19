@@ -230,7 +230,7 @@ public final class Check {
             List<String> links = new ArrayList<>();
             while (link.find()) {
                 String url = link.group(1) != null ? link.group(1) : link.group(2);
-                if (url.startsWith(DOCS) || url.matches("https?://(www\\.)?surveyjs\\.io(/documentation)?/backend-integration.*")) {
+                if (url.startsWith(DOCS) || url.matches("https?://(www\\.)?surveyjs\\.io(/documentation)?/backend-integration(?!/examples).*")) {
                     links.add(url);
                 }
             }
