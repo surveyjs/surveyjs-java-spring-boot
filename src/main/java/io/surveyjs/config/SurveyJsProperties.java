@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * other class reads the environment.
  *
  * <p>Switches accept {@code 1|true|on|yes} (Spring's conversion). A blank text value means unset: the contract
- * runner sets a key to a single space to override a developer's .env with nothing.
+ * runner sets a key to a single space to override a developer's settings.env or .env with nothing.
  */
 @ConfigurationProperties("surveyjs")
 public record SurveyJsProperties(
@@ -64,7 +64,7 @@ public record SurveyJsProperties(
         anthropicApiKey = blankToNull(anthropicApiKey);
         build = blankToNull(build);
         dataDir = Path.of("").toAbsolutePath().resolve(dataDir == null ? Path.of("storage") : dataDir).normalize();
-        docs = orDefault(docs, "https://surveyjs.io/documentation/backend-integration-java");
+        docs = orDefault(docs, "https://surveyjs.io/documentation/backend-integration-spring-boot");
         github = withoutTrailingSlash(orDefault(github, "https://github.com/surveyjs/surveyjs-java-spring-boot"));
     }
 

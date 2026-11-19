@@ -23,7 +23,7 @@ import org.springframework.core.env.MapPropertySource;
 
 /**
  * Runs before Spring creates any bean, database or web server ({@link ApplicationEnvironmentPreparedEvent}), with the
- * environment already read: .env, environment variables and {@code --server.port} all count.
+ * environment already read: settings.env, .env, environment variables and {@code --server.port} all count.
  *
  * <ul>
  *   <li>It refuses to start from anywhere but the repository root, where {@code shared/} lives.</li>

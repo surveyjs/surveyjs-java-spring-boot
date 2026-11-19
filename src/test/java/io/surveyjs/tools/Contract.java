@@ -33,7 +33,7 @@ import java.util.stream.Stream;
  */
 public final class Contract {
 
-    /** Off means off: the developer's .env must not switch translation or extraction on. A space overrides .env with nothing. */
+    /** Off means off: settings.env and .env must not switch translation or extraction on. A space overrides them with nothing. */
     private static final List<String> AI_SETTINGS = List.of("AI_API_KEY", "SURVEYJS_AI_PROVIDER", "SURVEYJS_AI_MODEL",
             "SURVEYJS_OLLAMA_BASE_URL", "OPENAI_API_KEY", "ANTHROPIC_API_KEY");
     private static final List<String> SWITCHES = List.of("VALIDATE_RESPONSES", "LINT_DEFINITIONS", "DEMO_MODE");
@@ -63,7 +63,7 @@ public final class Contract {
         env.put("SERVICE", orDefault(System.getenv("SERVICE"), "off"));
         env.put("AI", orDefault(System.getenv("AI"), "off"));
         env.put("SURVEYJS_BUILD", orDefault(System.getenv("SURVEYJS_BUILD"), "contract"));
-        for (String name : SWITCHES) {   // what the test expects is what the app runs with, whatever .env says
+        for (String name : SWITCHES) {   // what the test expects is what the app runs with, whatever settings.env and .env say
             env.put(name, orDefault(System.getenv(name), "false"));
         }
         if (!env.get("AI").equals("stub")) {

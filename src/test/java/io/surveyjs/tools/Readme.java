@@ -17,7 +17,7 @@ import tools.jackson.databind.json.JsonMapper;
  */
 public final class Readme {
 
-    private static final String DOCS = "https://surveyjs.io/documentation/backend-integration-java";
+    private static final String DOCS = "https://surveyjs.io/documentation/backend-integration-spring-boot";
     private static final Pattern MARKERS = Pattern.compile("(<!-- steps:start[^>]*-->)[\\s\\S]*?(<!-- steps:end -->)");
 
     private Readme() {
