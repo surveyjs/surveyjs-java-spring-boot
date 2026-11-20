@@ -64,7 +64,7 @@ public record SurveyJsProperties(
         anthropicApiKey = blankToNull(anthropicApiKey);
         build = blankToNull(build);
         dataDir = Path.of("").toAbsolutePath().resolve(dataDir == null ? Path.of("storage") : dataDir).normalize();
-        docs = orDefault(docs, "https://surveyjs.io/documentation/backend-integration-spring-boot");
+        docs = orDefault(docs, "https://surveyjs.io/documentation/backend-integration-java-spring-boot");
         github = withoutTrailingSlash(orDefault(github, "https://github.com/surveyjs/surveyjs-java-spring-boot"));
     }
 

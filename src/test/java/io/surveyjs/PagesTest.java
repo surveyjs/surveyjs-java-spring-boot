@@ -123,7 +123,7 @@ class PagesTest extends TestSupport {
             step.get("files").propertyNames().stream().filter(role -> role.startsWith("definition"))
                     .forEach(role -> assertThat(config.has(role)).as(page[0] + ": " + role).isTrue());
             assertThat(html).as(page[0]).contains("<title>" + step.get("title").asString() + " · SurveyJS + Spring Boot</title>");
-            assertThat(html).as(page[0]).contains("href=\"https://surveyjs.io/documentation/backend-integration-spring-boot#" + step.get("anchor").asString() + "\"");
+            assertThat(html).as(page[0]).contains("href=\"https://surveyjs.io/documentation/backend-integration-java-spring-boot#" + step.get("anchor").asString() + "\"");
             assertThat(count(html, "<details data-code-section open")).as(page[0] + ": one code section per region").isEqualTo(step.get("regions").size());
         }
     }

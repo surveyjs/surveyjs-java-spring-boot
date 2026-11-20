@@ -40,7 +40,7 @@ public final class Check {
             "src/main/java/io/surveyjs/examples/EditTogetherRelay.java");
     static final int MAX_REGION_LINES = 24;
     static final int MAX_RELAY_REGION_LINES = 60;
-    static final String DOCS = "https://surveyjs.io/documentation/backend-integration-spring-boot";
+    static final String DOCS = "https://surveyjs.io/documentation/backend-integration-java-spring-boot";
     /** This platform's plumbing: a server region calls integration/ or storage/ for these instead of showing them. */
     static final List<String> PLUMBING = List.of("GeneratedKeyHolder", "KeyHolder", "writeValueAsString", "ResourceAccessException",
             "HttpTimeoutException", "ConnectException", "JdkClientHttpRequestFactory", "Instant.now", "truncatedTo", "SandboxContext");
